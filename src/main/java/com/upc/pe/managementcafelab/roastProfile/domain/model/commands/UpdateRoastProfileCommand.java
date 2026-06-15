@@ -1,9 +1,5 @@
 package com.upc.pe.managementcafelab.roastProfile.domain.model.commands;
 
-import com.upc.pe.managementcafelab.roastProfile.domain.model.valueObjects.DurationInSeconds;
-import com.upc.pe.managementcafelab.roastProfile.domain.model.valueObjects.RoastType;
-import com.upc.pe.managementcafelab.roastProfile.domain.model.valueObjects.TemperatureRange;
-
 public record UpdateRoastProfileCommand(
         Long roastProfileId,
         String name,

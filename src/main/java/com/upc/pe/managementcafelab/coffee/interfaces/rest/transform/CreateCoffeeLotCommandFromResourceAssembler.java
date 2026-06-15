@@ -2,9 +2,6 @@ package com.upc.pe.managementcafelab.coffee.interfaces.rest.transform;
 
 import com.upc.pe.managementcafelab.coffee.domain.model.commands.CreateCoffeeLotCommand;
 import com.upc.pe.managementcafelab.coffee.domain.model.valueObjetcs.Certification;
-import com.upc.pe.managementcafelab.coffee.domain.model.valueObjetcs.CoffeeType;
-import com.upc.pe.managementcafelab.coffee.domain.model.valueObjetcs.LotStatus;
-import com.upc.pe.managementcafelab.coffee.domain.model.valueObjetcs.ProcessingMethod;
 import com.upc.pe.managementcafelab.coffee.interfaces.rest.resources.CreateCoffeeLotResource;
 
 import java.util.List;

@@ -2,9 +2,6 @@ package com.upc.pe.managementcafelab.roastProfile.domain.model.valueObjects;
 
 import jakarta.persistence.Embeddable;
 
-import java.util.Arrays;
-import java.util.List;
-
 
 @Embeddable
 public record TemperatureRange(Double start, Double end) {

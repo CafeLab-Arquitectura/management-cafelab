@@ -1,9 +1,6 @@
     package com.upc.pe.managementcafelab.coffee.domain.model.commands;
 
     import com.upc.pe.managementcafelab.coffee.domain.model.valueObjetcs.Certification;
-    import com.upc.pe.managementcafelab.coffee.domain.model.valueObjetcs.CoffeeType;
-    import com.upc.pe.managementcafelab.coffee.domain.model.valueObjetcs.LotStatus;
-    import com.upc.pe.managementcafelab.coffee.domain.model.valueObjetcs.ProcessingMethod;
 
     import java.util.List;
 

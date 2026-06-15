@@ -3,12 +3,8 @@ package com.upc.pe.managementcafelab.coffee.interfaces.rest.transform;
 
 import com.upc.pe.managementcafelab.coffee.domain.model.aggregates.CoffeeLot;
 import com.upc.pe.managementcafelab.coffee.domain.model.valueObjetcs.Certification;
-import com.upc.pe.managementcafelab.coffee.domain.model.valueObjetcs.CoffeeType;
-import com.upc.pe.managementcafelab.coffee.domain.model.valueObjetcs.LotStatus;
-import com.upc.pe.managementcafelab.coffee.domain.model.valueObjetcs.ProcessingMethod;
 import com.upc.pe.managementcafelab.coffee.interfaces.rest.resources.CoffeeLotResource;
 
-import java.util.List;
 import java.util.stream.Collectors;
 
 public class CoffeeLotResourceFromEntityAssembler {

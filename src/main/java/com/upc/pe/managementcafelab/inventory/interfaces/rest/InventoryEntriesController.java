@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.upc.pe.managementcafelab.inventory.domain.services.InventoryAnalyticsQueryService;
+import com.upc.pe.managementcafelab.inventory.domain.model.queries.GetCoffeeLotAnalyticsQuery;
+import com.upc.pe.managementcafelab.inventory.interfaces.rest.transform.CoffeeLotAnalyticsResourceFromEntityAssembler;
 
 import java.util.stream.Collectors;
 
@@ -23,10 +26,15 @@ import java.util.stream.Collectors;
 public class InventoryEntriesController {
 
     private final InventoryEntryQueryService queryService;
+    private final InventoryAnalyticsQueryService analyticsQueryService;
 
-    public InventoryEntriesController(InventoryEntryQueryService queryService) {
-        this.queryService = queryService;
-    }
+        public InventoryEntriesController(
+                InventoryEntryQueryService queryService,
+                InventoryAnalyticsQueryService analyticsQueryService
+        ) {
+            this.queryService = queryService;
+            this.analyticsQueryService = analyticsQueryService;
+        }
 
     @GetMapping("/user/{userId}")
     @Operation(summary = "Get inventory entries by user")
@@ -36,6 +44,26 @@ public class InventoryEntriesController {
         var resources = entries.stream()
                 .map(InventoryEntryResourceFromEntityAssembler::toResourceFromEntity)
                 .collect(Collectors.toList());
+
+        return ResponseEntity.ok(resources);
+    }
+
+    @GetMapping("/analytics/user/{userId}")
+    @Operation(summary = "Get coffee lot analytics by user")
+    public ResponseEntity<?> getAnalyticsByUserId(
+            @PathVariable Long userId
+    ) {
+
+        var analytics = analyticsQueryService.handle(
+                new GetCoffeeLotAnalyticsQuery(userId)
+        );
+
+        var resources = analytics.stream()
+                .map(
+                    CoffeeLotAnalyticsResourceFromEntityAssembler
+                            ::toResourceFromEntity
+                )
+                .toList();
 
         return ResponseEntity.ok(resources);
     }
